@@ -4,6 +4,7 @@ class GeneralInfo{
     public:
         void displayGeneralInfo();
         void computerName();
+        void operatingSystemInfo();
 
     private:
         std::string systemName;

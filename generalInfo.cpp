@@ -6,7 +6,9 @@ using namespace std;
 
 //Returns General Information about the system
 void GeneralInfo::displayGeneralInfo()
-{
+{   
+    computerName();
+    operatingSystemInfo();
     cout << "General Information\n";
     cout << "---------------------------------------------------------" << endl;
     cout << "Computer Name: " << systemName << endl;
@@ -21,6 +23,14 @@ void GeneralInfo::computerName()
     if (gethostname(buffer, sizeof(buffer)) == 0) {
         systemName = buffer;
     }
+}
+
+void GeneralInfo::operatingSystemInfo(){
+    #ifdef _WIN64
+        operatingSystem = "Windows 64-bit";
+    #elif __linux__
+        operatingSystem = "Linux";
+    #endif
 }
 
 
