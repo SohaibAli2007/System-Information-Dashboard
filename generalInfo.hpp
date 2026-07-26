@@ -5,6 +5,9 @@ class GeneralInfo{
         void displayGeneralInfo();
         void computerName();
         void operatingSystemInfo();
+        void cpuInfo();
+        void gpuInfo();
+        void ramInfo();
 
     private:
         std::string systemName;

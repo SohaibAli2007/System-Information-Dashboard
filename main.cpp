@@ -8,7 +8,6 @@ int main(){
     cout << "         System Information          " << endl;
     cout << "===================================" << endl;
     cout << "\n\n";
-    generalInfo.computerName();
     generalInfo.displayGeneralInfo();
 }
 
