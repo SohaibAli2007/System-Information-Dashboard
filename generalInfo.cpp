@@ -16,6 +16,7 @@ void GeneralInfo::displayGeneralInfo()
     cout << "Computer Name: " << systemName << endl;
     cout << "Operating System: " << operatingSystem << endl;
     cout << "CPU: " << cpu << endl;
+    cout << "GPU: " << gpu << endl;
     cout << "RAM: " << ram << endl;
 }
 
@@ -44,8 +45,9 @@ void GeneralInfo::cpuInfo(){
     }
 
     char colon = line.find(':');
-
     cpu = line.substr(colon + 2);
 }
+
+
 
 

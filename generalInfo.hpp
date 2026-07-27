@@ -13,5 +13,6 @@ class GeneralInfo{
         std::string systemName;
         std::string operatingSystem;
         std::string cpu;
+        std::string gpu;
         std::string ram;
 };
