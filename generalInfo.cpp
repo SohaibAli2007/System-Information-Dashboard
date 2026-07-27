@@ -2,6 +2,9 @@
 #include <unistd.h>
 #include <limits.h>
 #include <fstream>
+#include <array>
+#include <string>
+#include <cstdio>
 #include "generalInfo.hpp"
 using namespace std;
 
@@ -11,6 +14,7 @@ void GeneralInfo::displayGeneralInfo()
     computerName();
     operatingSystemInfo();
     cpuInfo();
+    gpuInfo();
     cout << "General Information\n";
     cout << "---------------------------------------------------------" << endl;
     cout << "Computer Name: " << systemName << endl;
@@ -46,6 +50,24 @@ void GeneralInfo::cpuInfo(){
 
     char colon = line.find(':');
     cpu = line.substr(colon + 2);
+}
+
+void GeneralInfo::gpuInfo(){
+    array<char, 256> buffer;
+
+    FILE* pipe = popen(
+        "powershell.exe -Command \"(Get-CimInstance Win32_VideoController).Name\"",
+        "r");
+    if (!pipe) {
+        cerr << "Failed to run command" << endl;
+        return;
+    }
+
+    while (fgets(buffer.data(), buffer.size(), pipe) != nullptr) {
+        gpu += buffer.data();
+    }
+    pclose(pipe);
+
 }
 
 
