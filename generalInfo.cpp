@@ -67,8 +67,9 @@ void GeneralInfo::gpuInfo(){
         gpu += buffer.data();
     }
     pclose(pipe);
-
 }
+
+void GeneralInfo::ramInfo(){}
 
 
 
