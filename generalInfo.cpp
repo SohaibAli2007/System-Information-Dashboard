@@ -15,6 +15,7 @@ void GeneralInfo::displayGeneralInfo()
     operatingSystemInfo();
     cpuInfo();
     gpuInfo();
+    ramInfo();
     cout << "General Information\n";
     cout << "---------------------------------------------------------" << endl;
     cout << "Computer Name: " << systemName << endl;
@@ -59,7 +60,7 @@ void GeneralInfo::gpuInfo(){
         "powershell.exe -Command \"(Get-CimInstance Win32_VideoController).Name\"",
         "r");
     if (!pipe) {
-        cerr << "Failed to run command" << endl;
+        cout << "Failed to run command" << endl;
         return;
     }
 
@@ -69,7 +70,30 @@ void GeneralInfo::gpuInfo(){
     pclose(pipe);
 }
 
-void GeneralInfo::ramInfo(){}
+void GeneralInfo::ramInfo(){
+    array<char, 256> buffer;
+    string line;
+
+    FILE* pipe = popen(
+        "powershell.exe -Command \"Get-CimInstance Win32_PhysicalMemory\"", "r");
+
+        if(!pipe){
+            cout << "Failed to run command" << endl;
+            return;
+        }
+
+        while(fgets(buffer.data(), buffer.size(), pipe) != nullptr){
+            ram += buffer.data();
+        }
+
+        size_t pos = ram.find("Manufacturer");
+        size_t endPos = ram.find("Model");
+
+        ram = ram.substr(pos, endPos - pos);
+
+        size_t newPos = ram.find(":");
+        ram = ram.substr(newPos + 2);
+}
 
 
 
