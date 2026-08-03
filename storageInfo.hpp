@@ -1,10 +1,11 @@
 class StorageInfo{
     public:
+        void calculateStorageSpace();
         void displayStorageSpace();
 
     private:
-        int totalSpace;
-        int usedSpace;
-        int freeSpace;
+        unsigned long totalSpace;
+        unsigned long usedSpace;
+        unsigned long freeSpace;
 
 };

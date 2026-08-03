@@ -22,7 +22,7 @@ void GeneralInfo::displayGeneralInfo()
     cout << "Operating System: " << operatingSystem << endl;
     cout << "CPU: " << cpu << endl;
     cout << "GPU: " << gpu << endl;
-    cout << "RAM: " << ram << endl;
+    cout << "RAM: " << ram;
 }
 
 void GeneralInfo::computerName()
@@ -93,6 +93,7 @@ void GeneralInfo::ramInfo(){
 
         size_t newPos = ram.find(":");
         ram = ram.substr(newPos + 2);
+        pclose(pipe);
 }
 
 

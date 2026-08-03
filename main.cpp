@@ -9,7 +9,7 @@ int main(){
     cout << "===================================" << endl;
     cout << "         System Information          " << endl;
     cout << "===================================" << endl;
-    cout << "\n\n";
+    cout << "\n";
     generalInfo.displayGeneralInfo();
     storageInfo.displayStorageSpace();
 
