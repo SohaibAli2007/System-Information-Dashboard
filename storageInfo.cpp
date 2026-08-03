@@ -11,6 +11,7 @@ void StorageInfo::displayStorageSpace(){
     usedSpace = totalSpace - freeSpace;
 
     cout << totalSpace;
+    cout << freeSpace;
 
 
 }
