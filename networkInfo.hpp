@@ -1,7 +1,10 @@
 #include <string>
 class NetworkInfo{
     public:
-        void displayNetworkInfo();
+    void findIPAddress();
+    void findMACAddress();
+    void displayNetworkInfo();
+        
     
     private:
         std::string ipAddress;

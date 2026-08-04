@@ -13,8 +13,8 @@ int main(){
     cout << "===================================" << endl;
     cout << "\n";
 
-    //generalInfo.displayGeneralInfo();
-    //storageInfo.displayStorageSpace();
+    generalInfo.displayGeneralInfo();
+    storageInfo.displayStorageSpace();
     networkInfo.displayNetworkInfo();
 }
 
